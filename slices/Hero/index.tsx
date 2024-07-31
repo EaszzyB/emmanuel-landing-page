@@ -4,8 +4,10 @@ import { useEffect, useRef } from "react";
 
 import { Content, KeyTextField } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
-import gsap from "gsap";
+import { gsap } from "gsap";
 import { components } from "..";
+import Bounded from "@/app/componets/Bounded";
+import {Shapes} from "./Shapes";
 
 /**
  * Props for `Hero`.
@@ -35,6 +37,7 @@ useEffect(() => {
         ease: "elastic.out(1,0.3)",
         duration: 1,
         transformOrigin: "left top",
+        delay: 0.5,
         stagger: {
           each: 0.1,
           from: "random",
@@ -73,12 +76,13 @@ const renderLettters = (name:KeyTextField, key:string) => {
 
 
   return (
-    <section
+    <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       ref={components}
     >
       <div className="grid min-h-[70vh] grid-cold-1 md:grid-cols-2 items-center">
+        <Shapes />
         <div className="col-start-1 mid:row-start-1">
           <h1 className="mb-8 text-[clamp(3rem,18vmin,18rem)] font-extrabold leading-none
           tracking-tighter" aria-label={slice.primary.first_name + " " + slice.primary.last_name}>
@@ -96,7 +100,7 @@ const renderLettters = (name:KeyTextField, key:string) => {
           </span>
        </div>
       </div>
-    </section>
+    </Bounded>
   );
 };
 
