@@ -1,0 +1,62 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "FieldContent",
+				"value": "capital",
+				"type": "Text"
+			},
+			"description": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "under",
+									"type": "Text"
+								}
+							],
+							[
+								"time_period",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "jack",
+									"type": "Text"
+								}
+							],
+							[
+								"institution",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "father",
+									"type": "Text"
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "In Lorem minim sit exercitation. Cillum enim minim officia Lorem nisi enim tempor est ut nostrud occaecat amet quis laboris."
+											}
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

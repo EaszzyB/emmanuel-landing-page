@@ -7,6 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MdArrowOutward } from "react-icons/md";
 import { Content } from "@prismicio/client";
 import Link from "next/link";
+import { url } from "inspector";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -31,7 +32,7 @@ export default function ContentList({
   const lastMousePos = useRef({ x: 0, y: 0 });
   const [hovering, setHovering] = useState(false);
 
-  const urlPrefix = contentType === "Blog" ? "/blog" : "/project";
+  const urlPrefix = contentType === "Blog" ? "/blog" : "/projects";
 
   useEffect(() => {
     // Animate list-items in with a stagger
@@ -134,28 +135,29 @@ export default function ContentList({
   }, [contentImages]);
 
   return (
-    <>
+    <div ref={component}>
       <ul
-        ref={component}
         className="grid border-b border-b-slate-100"
         onMouseLeave={onMouseLeave}
       >
-        {items.map((post, index) => (
+        {items.map((item, index) => (
+            <>
+            {isFilled.keyText(item.data.title) && (
           <li
             key={index}
-            ref={(el) => (itemsRef.current[index] = el)}
-            onMouseEnter={() => onMouseEnter(index)}
             className="list-item opacity-0"
+            onMouseEnter={() => onMouseEnter(index)}
+            ref={(el)=>(itemsRef.current[index]) = el}
           >
             <Link
-              href={`${urlPrefix}/${post.uid}`}
+              href={urlPrefix + "/" + item.uid}
               className="flex flex-col justify-between border-t border-t-slate-100 py-10  text-slate-200 md:flex-row "
-              aria-label={post.data.title || ""}
+              aria-label={item.data.title}
             >
               <div className="flex flex-col">
-                <span className="text-3xl font-bold">{post.data.title}</span>
+                <span className="text-3xl font-bold">{item.data.title}</span>
                 <div className="flex gap-3 text-yellow-400 text-lg font-bold">
-                  {post.tags.map((tag, index) => (
+                  {item.tags.map((tag, index) => (
                     <span key={index} className="text-lg font-bold">
                       {tag}
                     </span>
@@ -167,18 +169,20 @@ export default function ContentList({
               </span>
             </Link>
           </li>
+            )}
+            </>
         ))}
+        </ul>
 
         {/* Hover element */}
         <div
           className="hover-reveal pointer-events-none absolute left-0 top-0 -z-10 h-[320px] w-[220px] rounded-lg bg-cover bg-center opacity-0 transition-[background] duration-300"
           style={{
-            backgroundImage:
+              backgroundImage:
               currentItem !== null ? `url(${contentImages[currentItem]})` : "",
-          }}
-          ref={revealRef}
-        ></div>
-      </ul>
-    </>
+            }}
+            ref={revealRef}
+            ></div>
+    </div>
   );
 }
