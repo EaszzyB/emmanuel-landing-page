@@ -39,10 +39,10 @@
             "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
           }
         },
-        "veiw_more_text": {
+        "view_more_text": {
           "type": "Text",
           "config": {
-            "label": "Veiw More Text",
+            "label": "View More Text",
             "placeholder": ""
           }
         },
