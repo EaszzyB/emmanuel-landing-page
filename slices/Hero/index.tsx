@@ -84,7 +84,7 @@ const renderLettters = (name:KeyTextField, key:string) => {
       <div className="grid min-h-[70vh] grid-cold-1 md:grid-cols-2 items-center">
         <Shapes />
         <div className="col-start-1 mid:row-start-1">
-          <h1 className="mb-8 text-[clamp(3rem,18vmin,18rem)] font-extrabold leading-none
+          <h1 className="mb-8 text-[clamp(3rem,14vmin,14rem)] font-extrabold leading-none
           tracking-tighter" aria-label={slice.primary.first_name + " " + slice.primary.last_name}>
       <span className="block text-slate-300">
         {renderLettters(slice.primary.first_name, "first")}

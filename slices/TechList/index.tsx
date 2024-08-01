@@ -28,7 +28,6 @@ const TechList = ({ slice }: TechListProps): JSX.Element => {
       // create as many GSAP animations and/or ScrollTriggers here as you want...
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: component.current,
           pin: true, // pin the trigger element while active
           start: "top bottom",
           end: "bottom top",
@@ -75,7 +74,7 @@ const TechList = ({ slice }: TechListProps): JSX.Element => {
         <div
           key={index}
           className="tech-row mb-8 flex items-center justify-center gap-4 text-slate-700"
-          aria-label={tech_name || undefined}
+          aria-label={tech_name || ""}
         >
           {Array.from({ length: 15 }, (_, index) => (
             <React.Fragment key={index}>
